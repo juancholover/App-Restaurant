@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">RestaurantApp</string>
+
+    <!-- Login Activity -->
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register_prompt">¿No tienes cuenta? Regístrate</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">Registro</string>
+    <string name="full_name">Nombre Completo</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="register">Registrarse</string>
+    <string name="login_prompt">¿Ya tienes cuenta? Inicia sesión</string>
+
+    <!-- Main Activity -->
+    <string name="restaurants_title">Restaurantes</string>
+    <string name="search_restaurants">Buscar restaurantes...</string>
+
+    <!-- Restaurant Detail -->
+    <string name="menu">Menú</string>
+    <string name="make_reservation">Hacer Reserva</string>
+    <string name="view_cart">Ver Carrito</string>
+    <string name="hours">Horario:</string>
+
+    <!-- Cart Activity -->
+    <string name="cart_title">Carrito</string>
+    <string name="empty_cart">Tu carrito está vacío</string>
+    <string name="total">Total:</string>
+    <string name="checkout">Proceder al Pago</string>
+
+    <!-- Checkout Activity -->
+    <string name="checkout_title">Finalizar Pedido</string>
+    <string name="order_type">Tipo de Pedido</string>
+    <string name="delivery">Delivery</string>
+    <string name="pickup">Recojo en tienda</string>
+    <string name="delivery_address">Dirección de entrega</string>
+    <string name="place_order">Realizar Pedido</string>
+
+    <!-- Reservation Activity -->
+    <string name="reservation_title">Hacer Reserva</string>
+    <string name="select_date_time">Seleccionar Fecha y Hora</string>
+    <string name="party_size">Número de Personas</string>
+    <string name="special_requests">Solicitudes Especiales</string>
+    <string name="confirm_reservation">Confirmar Reserva</string>
+
+    <!-- Profile Activity -->
+    <string name="profile_title">Mi Perfil</string>
+    <string name="my_reservations">Mis Reservas</string>
+    <string name="my_orders">Mis Pedidos</string>
+    <string name="logout">Cerrar Sesión</string>
+
+    <!-- Common -->
+    <string name="loading">Cargando...</string>
+    <string name="error">Error</string>
+    <string name="success">Éxito</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+    <string name="add_to_cart">Agregar al Carrito</string>
+    <string name="quantity">Cantidad</string>
+    <string name="price">Precio</string>
+    <string name="category">Categoría</string>
+    <string name="status">Estado</string>
+    <string name="date">Fecha</string>
+    <string name="restaurant">Restaurante</string>
+</resources>
