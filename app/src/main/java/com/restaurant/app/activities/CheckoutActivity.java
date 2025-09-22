@@ -1,5 +1,6 @@
 package com.restaurant.app.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -59,14 +60,15 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
 
-        buttonPlaceOrder.setOnClickListener(v -> placeOrder());
+        // CAMBIO: Ahora procede al pago en lugar de completar la orden
+        buttonPlaceOrder.setOnClickListener(v -> proceedToPayment());
     }
 
     private void updateTotal() {
         textViewTotal.setText("Total: " + currencyFormat.format(cartManager.getTotalAmount()));
     }
 
-    private void placeOrder() {
+    private void proceedToPayment() {
         if (cartManager.isEmpty()) {
             Toast.makeText(this, "El carrito está vacío", Toast.LENGTH_SHORT).show();
             return;
@@ -91,14 +93,18 @@ public class CheckoutActivity extends AppCompatActivity {
         }
 
         buttonPlaceOrder.setEnabled(false);
-        buttonPlaceOrder.setText("Procesando...");
+        buttonPlaceOrder.setText("Creando pedido...");
 
+        // Primero crear la orden
         orderService.createOrder(restaurantId, cartManager.getCartItems(),
                 orderType, deliveryAddress, new OrderService.OrderCallback() {
                     @Override
                     public void onSuccess(Order order) {
-                        cartManager.clearCart();
-                        Toast.makeText(CheckoutActivity.this, "Pedido realizado exitosamente", Toast.LENGTH_LONG).show();
+                        // Luego proceder al pago
+                        Intent intent = new Intent(CheckoutActivity.this, PaymentActivity.class);
+                        intent.putExtra("order_id", order.getId());
+                        intent.putExtra("restaurant_id", restaurantId);
+                        startActivity(intent);
                         finish();
                     }
 
@@ -106,7 +112,7 @@ public class CheckoutActivity extends AppCompatActivity {
                     public void onError(String error) {
                         Toast.makeText(CheckoutActivity.this, "Error: " + error, Toast.LENGTH_LONG).show();
                         buttonPlaceOrder.setEnabled(true);
-                        buttonPlaceOrder.setText("Realizar Pedido");
+                        buttonPlaceOrder.setText("Continuar al Pago");
                     }
                 });
     }

@@ -66,4 +66,16 @@
     <string name="status">Estado</string>
     <string name="date">Fecha</string>
     <string name="restaurant">Restaurante</string>
+
+    <string name="mercadopago_public_key">APP_USR-5f0cbd0d-0eb6-4eb9-a3dc-ab6c9f113521</string>
+    <string name="mercadopago_environment">sandbox</string>
+
+    <!-- MercadoPago Strings -->
+    <string name="pay_with_mercadopago">Pagar con MercadoPago</string>
+    <string name="mercadopago_processing">Procesando pago...</string>
+    <string name="mercadopago_success">Pago exitoso con MercadoPago</string>
+    <string name="mercadopago_error">Error en el pago de MercadoPago</string>
+    <string name="mercadopago_cancelled">Pago cancelado</string>
+    <string name="mercadopago_pending">Pago pendiente de confirmación</string>
+
 </resources>

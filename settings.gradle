@@ -9,13 +9,18 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        // 👇 Repositorio oficial de MercadoLibre
+        maven { url "https://artifacts.mercadolibre.com/repository/android-releases" }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        // 👇 Necesario para el SDK de MercadoPago
+        maven { url "https://artifacts.mercadolibre.com/repository/android-releases" }
     }
 }
 

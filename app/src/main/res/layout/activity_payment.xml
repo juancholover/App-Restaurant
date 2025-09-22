@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:title="Pago"
+            android:titleTextColor="@android:color/white"
+            android:navigationIcon="@drawable/ic_arrow_back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textViewTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total: S/ 0.00"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_color"
+                android:gravity="center"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_total_card"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Método de Pago"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp">
+
+                <!-- OPCIÓN RECOMENDADA: MercadoPago -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <RadioButton
+                            android:id="@+id/radioMercadoPago"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="💙 MercadoPago"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#009EE3" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Paga con tarjeta, efectivo o saldo en cuenta"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RECOMENDADO"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/bg_recommended_badge"
+                            android:padding="4dp"
+                            android:layout_gravity="top" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <RadioButton
+                    android:id="@+id/radioCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="💳 Tarjeta de Crédito/Débito"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_payment_option"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radioCash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="💵 Efectivo (Pago contra entrega)"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_payment_option"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radioDigitalWallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📱 Yape / Plin"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_payment_option"
+                    android:layout_marginBottom="8dp" />
+
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCardDetails"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Ingresar Datos de Tarjeta"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔒 Tu pago está protegido con encriptación SSL"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_security_info" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonPay"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Selecciona método de pago"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

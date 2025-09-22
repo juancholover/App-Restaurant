@@ -10,6 +10,7 @@ public class Constants {
     public static final String MENU_ITEMS = "menu-items";
     public static final String RESERVATIONS = "reservations";
     public static final String ORDERS = "orders";
+    public static final String PAYMENTS = "payments";
 
     // SharedPreferences keys
     public static final String PREF_NAME = "restaurant_prefs";
@@ -22,6 +23,7 @@ public class Constants {
     // Request codes
     public static final int REQUEST_LOGIN = 1001;
     public static final int REQUEST_REGISTER = 1002;
+    public static final int REQUEST_CARD_DETAILS = 1003;
 
     // Order types
     public static final String ORDER_TYPE_DELIVERY = "DELIVERY";
@@ -32,4 +34,21 @@ public class Constants {
     public static final String STATUS_CONFIRMED = "CONFIRMED";
     public static final String STATUS_CANCELLED = "CANCELLED";
     public static final String STATUS_COMPLETED = "COMPLETED";
+
+    // Payment methods
+    public static final String PAYMENT_CREDIT_CARD = "CREDIT_CARD";
+    public static final String PAYMENT_DEBIT_CARD = "DEBIT_CARD";
+    public static final String PAYMENT_CASH = "CASH";
+    public static final String PAYMENT_DIGITAL_WALLET = "DIGITAL_WALLET";
+    public static final String PAYMENT_PAYPAL = "PAYPAL";
+    public static final String PAYMENT_YAPE = "YAPE";
+    public static final String PAYMENT_PLIN = "PLIN";
+
+    // Payment status
+    public static final String PAYMENT_STATUS_PENDING = "PENDING";
+    public static final String PAYMENT_STATUS_PROCESSING = "PROCESSING";
+    public static final String PAYMENT_STATUS_COMPLETED = "COMPLETED";
+    public static final String PAYMENT_STATUS_FAILED = "FAILED";
+    public static final String PAYMENT_STATUS_CANCELLED = "CANCELLED";
+    public static final String PAYMENT_STATUS_REFUNDED = "REFUNDED";
 }

@@ -1,19 +1,25 @@
+// app/build.gradle - ACTUALIZADO CON MERCADOPAGO
 plugins {
     id 'com.android.application'
 }
 
 android {
     namespace 'com.restaurant.app'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.restaurant.app"
         minSdk 24
-        targetSdk 34
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // MercadoPago configuration
+        manifestPlaceholders = [
+                'mercadopago_public_key': 'APP_USR-5f0cbd0d-0eb6-4eb9-a3dc-ab6c9f113521'
+        ]
     }
 
     buildTypes {
@@ -22,9 +28,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Para MercadoPago
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        pickFirst '**/libjsc.so'
     }
 }
 
@@ -35,9 +48,24 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    // Para cargar imágenes (opcional)
-    implementation 'com.squareup.picasso:picasso:2.8'
+    // MercadoPago SDK - VERSIÓN COMPATIBLE
+    implementation 'com.mercadopago.android.px:checkout:4.53.2'
 
+    // Dependencias adicionales requeridas por MercadoPago
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.6.2'
+
+    // Para HTTP requests
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Para cargar imágenes (opcional pero recomendado)
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+
+    // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
