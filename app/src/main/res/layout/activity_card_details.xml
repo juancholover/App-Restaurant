@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="24dp"
                 android:src="@drawable/ic_credit_card"
-                android:int="@color/primary_color" />
+                android:tint="@color/primary_color" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

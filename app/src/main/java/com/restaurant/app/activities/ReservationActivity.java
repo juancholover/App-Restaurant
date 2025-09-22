@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.restaurant.app.R;
 import com.restaurant.app.models.Reservation;
 import com.restaurant.app.services.ReservationService;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class ReservationActivity extends AppCompatActivity {
     private TextView textViewRestaurantName, textViewSelectedDateTime;
@@ -24,7 +24,7 @@ public class ReservationActivity extends AppCompatActivity {
     private ReservationService reservationService;
     private Long restaurantId;
     private String restaurantName;
-    private LocalDateTime selectedDateTime;
+    private Calendar selectedDateTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,8 @@ public class ReservationActivity extends AppCompatActivity {
                     TimePickerDialog timePickerDialog = new TimePickerDialog(
                             this,
                             (timeView, hourOfDay, minute) -> {
-                                selectedDateTime = LocalDateTime.of(year, month + 1, dayOfMonth, hourOfDay, minute);
+                                selectedDateTime = Calendar.getInstance();
+                                selectedDateTime.set(year, month, dayOfMonth, hourOfDay, minute, 0);
                                 updateDateTimeDisplay();
                             },
                             calendar.get(Calendar.HOUR_OF_DAY),
@@ -82,8 +83,8 @@ public class ReservationActivity extends AppCompatActivity {
 
     private void updateDateTimeDisplay() {
         if (selectedDateTime != null) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            textViewSelectedDateTime.setText(selectedDateTime.format(formatter));
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+            textViewSelectedDateTime.setText(formatter.format(selectedDateTime.getTime()));
             textViewSelectedDateTime.setVisibility(android.view.View.VISIBLE);
         }
     }
@@ -117,7 +118,9 @@ public class ReservationActivity extends AppCompatActivity {
         buttonConfirmReservation.setEnabled(false);
         buttonConfirmReservation.setText("Procesando...");
 
-        String dateTimeStr = selectedDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        // Formato ISO 8601 (ejemplo: "2025-09-22T12:34:56")
+        SimpleDateFormat isoFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
+        String dateTimeStr = isoFormatter.format(selectedDateTime.getTime());
 
         reservationService.createReservation(restaurantId, dateTimeStr, partySize, specialRequests,
                 new ReservationService.ReservationCallback() {
