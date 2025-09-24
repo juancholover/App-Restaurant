@@ -68,8 +68,18 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
             textViewName.setText(restaurant.getName());
             textViewDescription.setText(restaurant.getDescription());
             textViewAddress.setText(restaurant.getAddress());
-            // Aquí podrías cargar la imagen usando Picasso o Glide
-            // Picasso.get().load(restaurant.getImageUrl()).into(imageViewRestaurant);
+
+            // Asignar imagen según el nombre
+            if (restaurant.getName().toLowerCase().contains("pizza")) {
+                imageViewRestaurant.setImageResource(R.drawable.ic_pizza_ita_background);
+            } else if (restaurant.getName().toLowerCase().contains("sushi")) {
+                imageViewRestaurant.setImageResource(R.drawable.ic_sushi_app_background);
+            } else if (restaurant.getName().toLowerCase().contains("burger") ||
+                    restaurant.getName().toLowerCase().contains("hamburguesa")) {
+                imageViewRestaurant.setImageResource(R.drawable.ic_burguer_app_background);
+            } else {
+                imageViewRestaurant.setImageResource(R.drawable.ic_restaurant_placeholder); // imagen por defecto
+            }
         }
     }
 }

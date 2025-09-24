@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.restaurant.app.R;
 import com.restaurant.app.models.MenuItem;
+
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -74,7 +75,17 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.MenuIt
             textViewDescription.setText(menuItem.getDescription());
             textViewPrice.setText(currencyFormat.format(menuItem.getPrice()));
             textViewCategory.setText(menuItem.getCategory());
-            // Aquí podrías cargar la imagen usando Picasso o Glide
+
+            // Asignar imagen según el nombre del plato
+            if (menuItem.getName().contains("Pizza")) {
+                imageViewMenuItem.setImageResource(R.drawable.ic_pizza_ita_background);
+            } else if (menuItem.getName().contains("Sushi")) {
+                imageViewMenuItem.setImageResource(R.drawable.ic_sushi_app_background);
+            } else if (menuItem.getName().contains("Burger")) {
+                imageViewMenuItem.setImageResource(R.drawable.ic_burguer_app_background);
+            } else {
+                imageViewMenuItem.setImageResource(R.drawable.ic_restaurant_placeholder); // tu imagen por defecto
+            }
         }
     }
 }
